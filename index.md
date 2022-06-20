@@ -19,5 +19,5 @@ Then you have to connect VScode with a Remote Sever([MobaXtrem](https://mobaxter
 
 ### Books&Lessons
 [Deep Learning from Scratch](books/【321tool.com】深度学习入门：基于 Python 的理论与实现.pdf)  ---A simple but great book when you are new in deep learning.
-
+[sdasfss](books/test.pdf)
 
