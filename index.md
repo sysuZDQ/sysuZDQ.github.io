@@ -1,24 +1,23 @@
 ## Welcome to My GitHub Pages
-<!-- 
-You can use the [editor on GitHub](https://github.com/sysuZDQ/sysuZDQ.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files. -->
-*From Baby to Giant. This is All You Need!*
 [![GSW](image/2022finals.jpg "GSW")](https://blog.csdn.net/y_bccl27/article/details/87980986)
 ### Linux
-
+<!--
 ```markdown
 I
 Love
 Linux
 ```
-
+-->
 For more details see [TransFormer](https://zhuanlan.zhihu.com/p/398039366).
 
-### Jekyll Themes
+### Tools
+Firstly,you need a [VScode](https://blog.csdn.net/weixin_50821119/article/details/110528064), which help you easily start you coding work.
+Then you have to connect VScode with a Remote Sever([MobaXtrem](https://mobaxterm.mobatek.net/)) to run your dl codes.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sysuZDQ/sysuZDQ.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Books&Lessons
+[Deep Learning from Scratch](books/【321tool.com】深度学习入门：基于 Python 的理论与实现.pdf)  ---A simple but great book when you are new in deep learning.
+
+
