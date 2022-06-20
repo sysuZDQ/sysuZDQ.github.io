@@ -1,5 +1,6 @@
 ## Welcome to My GitHub Pages
-From Baby to Gaint. This is All You Need!<font color=DarkTurquoise>Tesrt</font>
+From Baby to Gaint. This is All You Need!
+${\color{Emerald}z^2} = {\color{Yellow}x^2} + {\color{Cyan}y^2}$
 
 [![GSW](image/2022finals.jpg "GSW")](https://blog.csdn.net/y_bccl27/article/details/87980986)
 ### Linux
