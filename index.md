@@ -4,6 +4,7 @@ You can use the [editor on GitHub](https://github.com/sysuZDQ/sysuZDQ.github.io/
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files. -->
 *From Baby to Giant. This is All You Need!*
+[![沙漠中的岩石图片](/image/2022final.jpg "phto")](https://blog.csdn.net/y_bccl27/article/details/87980986)
 ### Linux
 
 ```markdown
