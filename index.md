@@ -1,6 +1,6 @@
 ## Welcome to My GitHub Pages
 ***From Baby to Gaint. This is All You Need!***
-
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1806635538&auto=1&height=66"></iframe>
 ![GSW](image/2022finals.jpg "GSW")
 ### Linux
 
@@ -12,11 +12,18 @@
 
 
 
-### Books&Lessons
+### Books & Lessons
 1. [Deep Learning from Scratch](books/DL from scratch.pdf)  
 
 
 ### Papers Reading
 #### BERT-Based Model
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1806635538&auto=1&height=66"></iframe>
+### Data Structures & Algorithm Analysis
+
+### Programming Language
+
+### Framework
+#### TensorFlow
+#### PyTorch
+
