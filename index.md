@@ -27,5 +27,5 @@
 #### TensorFlow
 #### PyTorch
 ### Python Library
-1. .[all kinds of Python Library](image/Python类库大全.png)
+1. .[all kinds of Python Library](image/Python 库类大全.png)
 2. .[hyperparameters tuning and feature selection](https://github.com/rodrigo-arenas/Sklearn-genetic-opt)
