@@ -30,3 +30,6 @@
 ### Python Library
 1. .[all kinds of Python Library](image/Python 库类大全.png)
 2. .[hyperparameters tuning and feature selection](https://github.com/rodrigo-arenas/Sklearn-genetic-opt)
+
+### About Ph.D
+1. .[what you have to considerate before you want to be a doctor ](https://gong.ustc.edu.cn/2022/0107/c21173a559545/page.htm)
