@@ -38,3 +38,18 @@
 ### Personal Learning
 1. [Github Pages](_post/Github Pages.md)
 2. [Websites](_post/Websites.md)
+
+### Project Experience
+1. [SM9]()
+2. [GIS]()
+3. [OCR]()
+4. [Flask]()
+5. [SLAM]()
+6. [SA]()
+7. [SQuAD2.0]()
+
+### Systematic Research
+1. [kownledge Graph](-post/KG.md)
+2. [Multimodal Machine Learning](_post/MMML.md)
+3. [An Introduction to Natural Language Processing](_post/NLP.md)
+4. [An Introduction to Machine Learning](_psot/ML.md)
