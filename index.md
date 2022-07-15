@@ -13,7 +13,8 @@
 
 
 ### Books & Lessons
-1. [Deep Learning from Scratch](books/DL from scratch.pdf)  
+1. [Deep Learning from Scratch](books/DL from scratch.pdf) 
+2. [Road 2 Coding](https://r2coding.com)
 
 
 ### Papers Reading
@@ -28,8 +29,12 @@
 2. [PyTorch](_post/Framework/PyTorch.md)
 
 ### Python Library
-1. .[all kinds of Python Library](image/Python 库类大全.png)
-2. .[hyperparameters tuning and feature selection](https://github.com/rodrigo-arenas/Sklearn-genetic-opt)
+1. [all kinds of Python Library](image/Python 库类大全.png)
+2. [hyperparameters tuning and feature selection](https://github.com/rodrigo-arenas/Sklearn-genetic-opt)
 
 ### About Ph.D
-1. .[what you have to considerate before you want to be a doctor ](https://gong.ustc.edu.cn/2022/0107/c21173a559545/page.htm)
+1. [what you have to considerate before you want to be a doctor ](https://gong.ustc.edu.cn/2022/0107/c21173a559545/page.htm)
+
+### Personal Learning
+1. [Github Pages](_post/Github Pages.md)
+2. [Websites](_post/Websites.md)
