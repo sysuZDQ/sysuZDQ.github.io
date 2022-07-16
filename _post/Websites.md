@@ -34,6 +34,7 @@
 5. [freepdf](https://freepdf-books.com/)
 6. [电子书检索网站](https://blog.csdn.net/qq_44621510/article/details/90730247)
 7. [ACM DL](https://dl.acm.org/)
+8. [zlibrary](https://zh.art1lib.com/)
 
 ## AI平台
 1. [百度AI](https://ai.baidu.com/)
