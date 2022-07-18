@@ -19,4 +19,35 @@ the problem of vanishing or ex-ploding gradients一度是NLP中的痛点。为�
 
 transformers的出现让更加深层的神经网络成为可能，当然，increasing computationalpower boosted by the wide use of distributed com-puting devices and strategies也是PTM流行的一种重要诱因。  
 
-PTM的基本问题有：不清楚隐层参数的意义以及巨大的计算资源
+PTM的基本问题有：不清楚隐层参数的意义以及巨大的计算资源   
+
+## 二 预训练模型的背景知识
+### Transfer Learning and Supervised Pre-Training
+从定义来说，迁移学习是指：transfer learning aims to capture important knowledge from multiple source tasks and then apply the knowledge to a target task.  
+
+显然，source tasks和target tasks的一致性是我们首先需要考虑的问题，pre-training methods往往是连接这两者的桥梁  
+
+一般来说，有两种迁移方法：feature transfer  and  parameter  transfer  
+
+从AlexNet到VGG和GoogleNet，网络变得越来越深，性能也相应的会越来越好，但会带来 vanishing or exploding gradients的问题。此外，model performance may soon meet a ceiling and then degrade rapidly with continually increasing network depths.  
+
+ResNet通过正则化和残差层的方式，解决了这一问题。Based on the combination of effective model ResNet, informative dataset ImageNet, as well as mature knowledge transfer methods, a wave of pre-training models on labeled data emerges. CV界很多的做法都是用ResNet在ImageNet上进行预训练，之后应用到图像识别等下游任务上。而在NLP领域，CoVE是一个相应的工作。    
+
+随着人们意识到无标注数据的价值，自监督应运而生。Self-supervised learning has been proposed to extract knowledge from large-scale unlabeled data by leveraging input data itself as supervision.其实自监督学习是无监督的一个分支，不同的是后者只是检测出数据的模式（如聚类），而前者更像监督学习。 
+
+Compared to supervised pre-training working as the cornerstone of CV in the deep learning era, self-supervised pre-training allows for huge advances in the field of NLP.    
+
+The recent stunning breakthroughs in PTMs are mainly towards NLP tasks, more specifically pre-trained language models.  
+
+Using word embeddings as the input of neural models has almost become the common mode for NLP tasks.    
+
+After Vaswani et al. (2017) propose Transformers to deal with sequential data, PTMs for NLP tasks have entered a new stage, because it is possible to train deeper language models compared to conventional CNNs and RNNs.   
+
+With the recent advance of PTMs for NLP tasks,applying Transformer-based PTMs as the backbone of NLP tasks has become a standard procedure.之后，CV也尝试self-supervised learning + tansformer的方法，甚至有Transformer-based multimodal PTMs。   
+
+The key to the success ofrecent PTMs is an integration of self-supervised learning and Transformer.其中最具代表性的莫过于autoregressive language modeling的GPT，以及autoencoding  language modeling的BERT，后续的PTMs都是两者的变种。  
+
+### Transformer
+Between neural layers,residual connection (He et al., 2016) and layer nor-malization (Ba et al., 2016) are employed, making it possible to train a deep Transformer.  
+
+
