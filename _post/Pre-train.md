@@ -50,4 +50,4 @@ The key to the success ofrecent PTMs is an integration of self-supervised learni
 ### Transformer
 Between neural layers,residual connection (He et al., 2016) and layer nor-malization (Ba et al., 2016) are employed, making it possible to train a deep Transformer.  
 
-
+众所周知，该模型是在[Attention Is All You Need](https://arxiv.org/abs/1706.03762)中被提出的。
