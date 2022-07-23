@@ -50,4 +50,21 @@ The key to the success ofrecent PTMs is an integration of self-supervised learni
 ### Transformer
 Between neural layers,residual connection (He et al., 2016) and layer nor-malization (Ba et al., 2016) are employed, making it possible to train a deep Transformer.  
 
-众所周知，该模型是在[Attention Is All You Need](https://arxiv.org/abs/1706.03762)中被提出的。
+众所周知，该模型是在[Attention Is All You Need](https://arxiv.org/abs/1706.03762)中被提出的，详情可见我写的这篇[博客](论文解读/Attention%20Is%20All%20You%20Need.md)。
+- BERT  
+  使用了MLM，即随机掩盖掉一些单词，预训练任务就是利用这些被掩盖单词的上下文来预测该单词，显然，这里是双向的。公式上为$L(X)=\sum_{i-=1}^mlogP([Mask]_i=y_i|\tilde X;\Theta)$另外，还有一个NSP任务，但是后来证明，该任务并无实际作用。 
+- GPT       
+  GPT是第一个将transformer架构和自监督训练结合起来的模型，其使用的是自回归语言模型，即最大化所有单词在给定前述单词的条件概率，公式上为$L(X)=\sum_{i=1}^{n+1}logP(x_i|x_{i-k},....,x_{i-1};\Theta)$
+- After GPT and BERT  
+  - RoBERTa
+    - 去除NSP任务
+    - 更大的训练步数、batch size，更多的数据
+    - 更长的训练句子
+    - 动态改变mask的方式
+  
+  - AlBERT
+    - 把输入的word embedding矩阵分解为更小的两个
+    - transformer层之间共享参数
+    - 用SOP代替NSP  
+  <div align=center><img src="..\image\81aebdb583379636c328d5761b5188a.png" width="300"></div>
+
