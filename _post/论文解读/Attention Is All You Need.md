@@ -21,5 +21,5 @@
   - dot-product attention:$Attention(Q,K,V)=softmax(\frac {QK^T}{\sqrt d_k })V$  
   
 - **Scaled Dot-Product Attention**  
-  直接来看公式$Attention(Q,K,V)=softmax(\frac {QK^T}{\sqrt d_k })V$，scaled指的是除的$\sqrt d_k$，这样做的目的是消除因为
+  直接来看公式$Attention(Q,K,V)=softmax(\frac {QK^T}{\sqrt d_k })V$，scaled指的是除的$\sqrt d_k$。根据softmax的公式$softmax(z_i)=\frac {e^{z_i}}{\sum_C^{c=1}{e^{z_c}}}$可知，当$C$太大时（这里对应的是$d_k$）每个值的梯度将会变小。因此我们做了这个操作。最后，Dot-Product是我们熟悉的点积操作。
   ![](../../image/transformer/c47abc087040e06a63dd85a38c2e60a.png#pic_center=100x100)
