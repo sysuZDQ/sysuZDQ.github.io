@@ -68,3 +68,142 @@ Between neural layers,residual connection (He et al., 2016) and layer nor-maliza
     - 用SOP代替NSP  
   <div align=center><img src="..\image\81aebdb583379636c328d5761b5188a.png" width="300"></div>
 
+## 三 最新研究方向
+### **Designing Effective Architectures**   
+
+BERT之后的模型架构可分为两个设计思路
+- Unified sequence modeling  
+  NLP具有挑战性的一个基本问题就是其多样的下游任务，包括$Natural ~language~understanding,Open-ended~language~generation,Non-open-ended ~language ~generation$。但是观察发现，我们不必太过在意各种下游任务的区别，它们的界限是模糊不清的。换句话说，它们之间是可以进行转换的。基于该发现，后续的工作在需求使用一个PTM来统一不同任务的方式。这块的挑战是，encoder-decoder架构参数更多、NLU效果更差。
+  - Combining Autoregressive and Autoencoding
+Modeling  
+    - XLNet：使用premutated language modeling将GPT-style
+unidirectional generation和BERT-style bidirectional understanding结合了起来
+    - MPNet：改进了XLNet在预训练是不知道序列长度，但是下游任务知道的问题
+    - UniLM：使用multi-task training，即将包括unidirectional, bidirectional, and seq2seq objective连接进来训练
+    - GLM：
+  - Applying Generalized Encoder-Decoder   
+    - MASS
+    - T5
+    - BART
+  
+- cognitive-inspired architecture  
+  这里是介绍受人类感知系统启发的模型架构
+  - Maintainable Working Memory   
+  固定的窗口大小和指数级的空间复杂度限制了transformer在长文本上的理解和生成。人类的记忆机制为 *not only memorizes and organizes but also forgets*，LSTM便是一个典型的应用。
+    - Transformer-XL:introduce segment-level recurrence and relative
+positional encoding
+    - CogQA:PTM+GNN
+    - CogLTX:解决CogQA固定窗口的问题
+  - Sustainable Long-Term Memory  
+  Besides working memory for deciding and reasoning, the
+long-term memory also plays a key role in recalling facts and experiences.
+    - REALM:construct a sustainable external memory for Transformers
+    - RAG:extends
+the masked pre-training to autoregressive generation, which could be better than extractive question answering.
+
+- optimizing BERT's architecture  
+  改进掩码策略和更加为更难的掩码预测目标
+  - Span-BERT:masking a continuous random-length span of tokens with a span boundary objective (SBO)
+  - ERNIE:a whole entity is masked
+  - NEZHA:
+  - Whole Word Masking
+  - ELECTRA：transform MLM
+to a replace token detection (RTD) objective, in
+which a generator will replace tokens in original
+sequences and a discriminator will predict whether
+a token is replaced
+
+
+### **Utilizing Rich Contexts**
+- Multilingual Pre-Training  
+  虽然世界上的语言都不相同，但是它们可以表达一样的意思。实验证明，使用多语言进行训练，能够得到更好的性能。因此，学习multilingual representation可能是一个更好的方式。这里主要有两种学习方法：learn through parameter sharing和learn language-agnostic
+constraints   
+  - mBERT：pretrained with the multilingual masked language
+modeling (MMLM) task using **non-parallel** multilingual Wikipedia corpora in 104 languages
+  - XLM-R：XLM-R is pretrained with MMLM as the only task on
+ Multimodal Pre-training **CC-100**，性能更好的原因是CC-100数据集更大
+  - XLM：MMLM不能很好地利用parallel corpus，XLM利用**bilingual sentence pairs** to perform the translation language modeling
+(**TLM**) task.This encourages models to align the representations of two languages together.
+  - Unicoder：provides two novel pre-training tasks based on parallel corpora: cross-lingual word recovery (**CLWR**)
+and cross-lingual paraphrase classification (**CLPC**).
+  - ALM： automatically
+**generates code-switched sequences** from parallel
+sentences and performs MLM on it, which forces
+models to make predictions based only on contexts
+of other languages.
+  - InfoXLM：analyzes MMLM and TLM from the perspective
+of information theory, and encourages models to
+distinguish aligned sentence pairs with misaligned
+negative examples under the framework of **contrastive learning**
+  - HICTL：extends
+the idea of using contrastive learning to learn both
+sentence-level and word-level cross-lingual representations.
+  - ERNIE-M：proposes **back-translation masked language modeling**
+(BTMLM), and expands the scale of parallel corpora through back-translation mechanisms.
+  - mBART：extends **DAE**(replacing a span of tokens with a mask token
+as well as permuting the order of tokens) to support multiple
+languages by adding special symbols. It adds a language symbol both to the end of the encoder input
+and the beginning of the decoder input. This enables models to know the languages to be encoded
+and generated.
+  - XNLG：proposes
+the cross-lingual autoencoding (**XAE**) task. Different from DAE, the encoding input and the decoding
+output of XAE are in different languages, which is
+similar to machine translation.In addition, XNLG
+optimizes parameters in a **two-stage manner**. It
+trains the encoder with the **MLM and TLM tasks** in
+the first stage. Then, it fixes the encoder and trains
+the decoder with the **DAE and XAE tasks** in the
+second stage. All parameters are well pre-trained
+by this way, and the **gap** between pre-training with
+MLM and fine-tuning with autoregressive decoding
+is also filled.
+- Multimodal Pre-training  
+  一般来说，多模态工作大部分都是VLM，image and video belong to vision while text and speech belong to language.目前的多模态PTM主要关注三个方面：(1) improving model architecture, (2) utilizing more data, and (3) designing
+better pre-training tasks   
+目前大部分的工作都是基于visual-linguistic BERT的架构。而主要的挑战是如何将视觉和语言内容对齐到同一语义空间上，为了解决该问题，当前主要有两种设计架构：two-stream和single-stream。前者有ViLBERT和LXMERT；后者有VisualBERT、Unicoder-VL和B2T2。考虑到模型简单和参数效率，单流会是大部分人的选择。  
+而在数据集方面，有*Conceptual Captions ,SBU Captions ,COCO , Flicker30K , GQA ,VQA and Visual Genome*   
+UNITER就使用了上述的一些数据集来进行训练，充足的数据让它取得了不错的效果。ImageBERT进一步加入了一千万image-text pairs进行训练，VL-BERT加入了text-only corpora   
+至于在预训练任务方面，有**MLM**, sentence-image alignment (**SIA**), masked region classification (**MRC**),
+masked region feature regression (**MRFR**), and **directly incorporating downstream tasks**(LXMERT直接使用VQA)  
+为了学习更细粒度的表示，UNITER提出了word-region alignment task in the way
+of Optimal Transport, which
+first finds a sparse matching between image regions
+and words, and then minimizes the alignment distance.   
+然而，上述的工作都忽略了**object tags**’ function as a kind of explicit bridges
+between image regions and text tokens，为此，**Oscar**  proposes to concatenate
+the object tags with original image-text pairs as anchors to learn the alignment between V&L modalities, and designs a new pre-training task for image-tag sequence-caption alignment judgment.   
+并非直接设计预训练任务，**CLIP**和**WenLan** grasp the V&L
+grounding ability in a simple and holistic regime。They encode images and captions into **holistic** visual and text representations rather than **separated**
+region features and word embeddings, and then
+only conduct an image-text retrieval task.这类整体对其方式的成功要归功于大规模的数据。   
+上述模型可以用于V&L understanding和image captioning任务，但是无法用于image generation。**DALLE**展示了多模态PTM可以连接文本描述和图像生成。**CogView** further improves the
+numerical precision and training stability by introducing sandwich transformer and sparse attention
+mechanism     
+最后，除了image-text PTMs，还有其他模态的，如VideoBERT、SpeechBERT
+
+
+- Kownledge-enhanced Pre-training  
+  **knowledge graphs**, **domain specific data** and **extra annotations of pre-training data**, is the outcome of human wisdom which can be a good prior to the modeling of statistics.(如果有应用需要可能看原文中提及的一些工作)
+### **Improving Computational Efficiency**
+  虽然PTM的趋势是参数量越来越大，准确率也相应提升。但是，同时训练模型所需的空间和计算开销也增加了。因此，下面将介绍三种提升计算效率的方法。
+  - System-Level Optimization    
+  系统级优化一般是model-agnostic，并且不会改变底层的训练算法，因此可以用于训练大规模的PTM
+    - Single-Device Optimization    
+  大量的空间消耗主要是因为redundant representation
+of floating-point numbers。当前的深度学习系统主要基于FP32，但是模型的权值一般只处于一个有限的范围内，因此使用FP16已经并不会有太多的精度损失。   
+话虽如此，但是在使用FP16进行训练可能会失败，原因是**floating-point truncation and overflow**。为了解决该问题，mixed-precision training methods应运而生，他的做法是preserve some
+critical weights in FP32 to avoid the floating-point
+overflow and use dynamic loss scaling operations
+to get rid of the floating-point truncation。但是当模型参数初始化得不好时，该方法仍然会造成训练不稳定    
+此外，the activation states saved for computing gradients也是冗余的，就比如实际上我们需要的是attention layers和linear layers，但是隐藏层我们也是需要大量内存进行存储的。基于此，Gradient checkpointing
+methods have been used to
+save memory by storing only a part of the activation
+states after forward pass. The discarded activation
+states are recomputed during the backward steps if
+necessary.     
+最后，近来也有尝试将模型参数和激活状态放到CPU而非GPU，如ZeRO-Offload，因为前者内存更大
+    - Multi-Device Optimization
+  - Effective Pre-Training
+  - Model Compression
+
+### **Theoretical Analysis**
