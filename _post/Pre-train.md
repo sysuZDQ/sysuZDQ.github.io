@@ -222,7 +222,92 @@ weight update (Zhang and He, 2020). In addition,
 You et al. (2017) and You et al. (2020) find that
 adaptively using **different learning rates** at different layers can also speed up convergence when the
 batch size is large.
-    - Effective Model Architectures
-  - Model Compression
+    - Effective Model Architectures     
+  对于tansformer-based PTM来说，它们的对attention weigth的计算会随着输入序列的长度呈指数级增长。    
+  Some
+works (Peng et al., 2021; Choromanski et al., 2021;
+Wang et al., 2020c; Katharopoulos et al., 2020) design **low-rank kernels** to theoretically approximate
+the original attention weights and result in linear
+complexity. Some works (Child et al., 2019) introduce sparsity into attention mechanisms by limiting
+the view of each token to a fixed size and separating
+tokens into several chunks so that the computation
+of attention weights takes place **in every single
+chunk rather than a complete sequence**. Compared
+to predefined chunks, some works (Roy et al., 2021;
+Kitaev et al., 2020) find that **using learnable parameters to assign tokens into chunks** results in better performance. Another kind of methods (Guo
+et al., 2019; Lee et al., 2019; Beltagy et al., 2020;Ainslie et al., 2020; Zaheer et al., 2020) combine
+global and local attention mechanisms, and then
+use global nodes to gather tokens in a sequence. In
+this way, the long sequence is compressed into a
+small number of elements so that we can reduce
+the complexity.   
+最后，我们发现，在保持一样的计算复杂度的情况下，一些transformer的结构变种也可以帮助加速收敛。Mix-of-experts(**MoE**)可以使得在增加模型参数的同时而保持相同的计算复杂度，**Switch Transformer**便使用了这一项技术。
+
+  - Model Compression   
+  通过模型压缩，将大模型变为更小的，从而满足更快的推理和在资源受限设备上的应用。
+   - Parameter Sharing  
+  PTM可以通过在相似单元之间共享参数的方式进行压缩。**ALBERT**就使用了factorized embedding parameterization and cross-layer parameter sharing。它的成功也暗示了PTM可能是**over-parameterized**
+
+   - Model Pruning    
+  所谓模型剪枝，就是去掉一些无用的部分。   
+  In (Fan et al., 2019), Transformer layers
+are **selectively dropped during training**, resulting in
+a more shallow model during inference. In (Michelet al., 2019), (Voita et al., 2019) and (Zhang et al.,
+2021b), researchers study the **redundancy of the
+attention heads** in Transformers and find that only
+a small part of them is enough for good performance. Most of these heads can be removed with
+little impact on the accuracy. Other trials such as
+CompressingBERT (Gordon et al., 2020) try to
+**prune the weights of attention layers and linear layers** to reduce the number of parameters in PTMs,
+while maintaining the comparable performance to
+the original model.
+
+   - Knowledge Distillation    
+  知识蒸馏的做法是training a small model to reproduce the
+behavior of a large teacher model。比如ALBERT虽然减少了内存消耗，但是推理时间却没有减少。这里的相关工作有DistillBERT、TinyBERT、BERT-PKD、MiniLM。这里的问题是教师模型的训练数据一般是不公开的。
+   - Model Quantization   
+  模型量化一般用于CNN-based model，做法就是compression of higher-precision floating-point parameters to lower-precision floating-point ones.传统的PTM使用32或者16
+  bit进行表示，通过量化可以使用8甚至1、2bit表示。  
+   For recent Transformer-based
+models, 8-bit quantization has been proved to be effective for model compression in **Q8BERT** (Zafrir
+et al., 2019), with little impact on the model performance. Despite this, training 1 or 2 Bits models
+remains challenging due to the significant decrease
+in model capacity. To alleviate the performance
+degradation, other methods to preserve the accuracy can also be employed. **Q-BERT** (Shen et al.,
+2020a) uses mixed-bits quantization in which the
+parameters with higher Hessian spectrum require
+higher precision while those parameters with lower
+Hessian spectrum need lower precision. **TernaryBERT** (Zhang et al., 2020b) applies knowledge
+distillation in quantization, forcing low-bit models
+to imitate full-precision models. Both Q-BERT and
+TernaryBERT result in ultra low-bit models.    
+但是，模型量化是一项高度硬件相关的，也就是说你只能用到支持low-bits represntation的设备上
 
 ### **Theoretical Analysis**
+除了不断追求PTM更好的效果，一些研究也尝试揭开其神秘的面纱，了解其工作原理、捕捉的是什么信息。
+- Knowledge of PTMs   
+  PTM学习到的知识可以分为两类。
+  - Linguistic Knowledge  
+  相比于CNNs、RNNs，大规模的PTM可以学习到更丰富的语言知识。为了探究PTM的语言知识，主要有四种策略
+    - **Representation Probing**: Fix
+the parameters of PTMs and train a new linear layer
+on the hidden representations of PTMs for a specific probing task. It is the most popular approach
+because it can be easily adapted to any probing
+task without particular design.
+    - **Representation
+Analysis**: Use the hidden representations of PTMs to compute some statistics such as distances or similarities. According to these statistics, we can construct the relation between different words, phrases,
+or sentences.
+    - **Attention analysis**: similar to
+representation analysis, attention analysis compute
+statistics about attention matrices and is more suitable to discover the hierarchical structure of texts
+    -  **Generation Analysis**: Use language models to
+directly estimate the probabilities of different sequences or words. The target texts could be correct
+or incorrect in some linguistic phenomenons.    
+
+     原文中介绍了使用了这四种策略的一些工作，也是比较地具有启发性，并且得到了一些关于PTM本质上的结论，这里就不一一列举了。
+  - World Knowledge   
+  这里原文中也介绍了两类知识，并给出了对应的工作。
+    - commonsense knowledge
+    - factual knowledge
+- Robustness of PTMs
+- Structural Sparsity of PTMs
