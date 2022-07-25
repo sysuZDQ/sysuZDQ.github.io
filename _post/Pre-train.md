@@ -448,3 +448,16 @@ factors in graphs as human do.相关工作有InversePrompting
     - Interactions of Knowledge：it is important to see if our PTMs have shaped different inner function modules and how they would
 interact with each other.
 - **Applications**
+  - **Natural Language**：相关工作有GPT-2、BART、T5、UniLM
+  - **Dialog Systems**：最近的对话系统大部分建立在arge-scale transformer structures，它们使用大规模的对话数据进行训练的，但是**dialog specific pre-training tasks** are yet to be explored, comparing to pre-training tasks for other applications.
+  - **Domain-Specific PTMs**：当你拥有大量领域相关数据的时候，可以考虑训练domain-specific PTM，就比如BioBERT、SciBERT。实验证明，相比于使用通用数据进行训练，这样的做法可以帮助模型学习到更多的domain-specific knowledge
+  - **Domain Adaptation and Task Adaptation**：通用的PTM providing a good initial point to further learn domain-specific knowledge by fine-tuning or other techniques.但是一般领域相关的数据都较少，因此，domain
+adaptation is becoming crucial for domain-specific
+applications.It has been evident that the simple
+fine-tuning of large-scale PTMs is not sufficient for
+domain-specific applications (Gururangan et al.,
+2020; Ke et al., 2020). The most essential reason
+for this is the distribution shift: the data distribution
+in a specific domain may be substantially different
+from that in the general pre-training text.how to bridge
+the gap between pre-training and task-specific finetuning becomes crucial.
