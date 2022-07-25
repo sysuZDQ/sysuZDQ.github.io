@@ -66,7 +66,7 @@ Between neural layers,residual connection (He et al., 2016) and layer nor-maliza
     - 把输入的word embedding矩阵分解为更小的两个
     - transformer层之间共享参数
     - 用SOP代替NSP  
-  <div align=center><img src="..\image\81aebdb583379636c328d5761b5188a.png" width="300"></div>
+  <div align=center><img src="../image/pre-train/81aebdb583379636c328d5761b5188a.png" width="300"></div>
 
 ## 三 最新研究方向
 ### **Designing Effective Architectures**   
@@ -202,8 +202,27 @@ states after forward pass. The discarded activation
 states are recomputed during the backward steps if
 necessary.     
 最后，近来也有尝试将模型参数和激活状态放到CPU而非GPU，如ZeRO-Offload，因为前者内存更大
-    - Multi-Device Optimization
-  - Effective Pre-Training
+    - Multi-Device Optimization   
+  随着预训练模型的规模越来越大，分布式训练的思路也自然产生了，主要包括了data parallelism和model parallelism。在数据并行时，我们将一个大的batch划分到多个结点，在前向传播时，可以并行，在反向传播时，梯度需要汇集到一起。可以看到，这样会带来通信开销。    
+  另一方面，模型的参数量往往十分庞大，使用一个GPU内存不足，因此我们可以考虑模型并行。具体做法就是，将模型参数划分到多个结点，而如reduce-scatter、all-gather的通信操作可以保证前行传播和反向传播的正确性。如**Megatron-LM**把self-attention heads和feed-forward layers分到了不同的GPU、**Mesh-Tensonflow**可以让用户把向量划分到不同的维度。   
+  模型并行在前向传播和反向传播时都需要进行通信，而数据并行只需要在反向传播时进行通信，因此当内存足够时，后者会是更好的选择。   
+  ZeRO通过在数据并行进程之间划分OGP模型状态而不是复制它们来消除数据并行进程之间的内存冗余，在训练过程中采用动态通信调度，保持了和数据并行基本一致的计算粒度和通信量，从而保持了计算/通信效率。  
+  前面的模型并行是通过并行矩阵操作实现的，但是pipeline parallelism也是一种模型并行的方式。把每一个层划分到一个结点，一个结点计算结束之后把结果传到下一个结点，因此通信开销相对要少很多。相关工作有GPipe、TeraPipe。
+  <div align=center><img src="../image/pre-train/3g453iuups.png" width="300"></div>
+  <div align=center><img src="../image/pre-train/j8hraqv1fl.png" width="300"></div>    
+    
+
+  - Effective Pre-Training  
+  预训练阶段的优化主要可以分为任务和架构。
+    - Effective Training Methods    
+  传统的预训练任务都比较地sample-inefficient，比如MLM，mask比例通常为15%，也就是说只有少部分信息可以学习到。基于此，ELECTRA改用了replaced token detection任务，相较于前者，这里模型利用的监督信息更多了，因为它需要判别每一个单词是否被替换了。    
+  另外，MLM通常时随机mask的，训练过程会有点aimless和inefficient。因此，一些工作会选择基于单词的重要性或者在反向传播的梯度来加速训练。  
+  pre-training dynamics通常也是次优化的。PTM需要大的batch size，但是会增加优化的难度。因此，他们提出了warmup strategy。另外，PTM一般由多个如transformer的基础结构堆叠而成。研究表明，some recent works study Transformer based models and claim that different layers can share similar self-attention patterns.因此，我们可以尝试先训练一个shallow model，然后将其进行复制，从而构建一个deep model。Some layers can also be **dropped** during training to reduce the complexity of back-propagation and
+weight update (Zhang and He, 2020). In addition,
+You et al. (2017) and You et al. (2020) find that
+adaptively using **different learning rates** at different layers can also speed up convergence when the
+batch size is large.
+    - Effective Model Architectures
   - Model Compression
 
 ### **Theoretical Analysis**
