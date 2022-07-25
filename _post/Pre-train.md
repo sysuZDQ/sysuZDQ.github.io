@@ -409,6 +409,42 @@ of pre-training in improving the generalization of
 downstream tasks.it was shown that a higher sample complexity is
 needed in order to achieve adversarial robustness
 for neural networks.
-- **Modeledge Learning**
-- **Cognitive and Knowledgeable Learning**
+- **Modeledge Learning**   
+  区别于知识在人脑中是以离散符号表示的，在PTM中是以实数向量表示的，称为modeledge(模识)。
+  - Knowledge-Aware Tasks：From all these knowledge-aware tasks, we can find
+that a wealth of human knowledge is captured by
+PTMs and stored in the form of modeledge. How to
+stimulate the modeledge of PTMs is worth further
+exploring in the future
+  - Modeledge Storage and Management：不同的PTM需要不同的模型结构和训练数据，因此，如何管理和存储这些多样的modeladge成为了一个挑战。目前来说有两种方法，第一，用海量的数据训练一个可以cover多个modeledge的大模型，如GPT3。第二个就是基于mixture of experts (MoE)将多个模型结合成一个大模型，如switch transformer。另外，业界提出一个问题：is it
+possible to build a universal continuous knowledge
+base (UCKB) that stores modeledge from various
+PTMs?
+- **Cognitive and Knowledgeable Learning**   
+  令PTM更“博学”有三个方法
+  - Knowledge Augmentation：可以利用一些相关的知识来增强输入，it is important to bridge the gap between
+text representations and knowledge representations
+(including symbols or vectors) and use their information uniformly as input.The solution to this
+problem requires both unified model architectures
+and knowledge-guided pre-training objectives.
+
+  - Knowledge Support：With prior knowledge about the input, we can train
+different sub-module to process different kinds of
+input, which may accelerate the process of training
+and inference and benefit the model efficiency.
+  - Knowledge Supervision：By
+learning from both knowledge bases and large scale corpora, PTMs can have better language understanding and generation abilities compared to
+only using plain text.  
+ 
+  关于构建认知PTM，也有三种方法
+    - Cognitive Architecture：, it is expected to see how the macro
+function and organization of human cognitive system can enlighten the design of the next generation
+of intelligence system, such as the Global Working Theory (GWT).相关工作有CogQA、CogLTX。
+    - Explicit and Controllable Reasoning：how to conduct complex decision
+making and efficient multi-step reasoning is still
+unsolved, which may require machines to automatically plan the decision making process into a
+cognitive graph and do explicit reasoning over the
+factors in graphs as human do.相关工作有InversePrompting 
+    - Interactions of Knowledge：it is important to see if our PTMs have shaped different inner function modules and how they would
+interact with each other.
 - **Applications**
