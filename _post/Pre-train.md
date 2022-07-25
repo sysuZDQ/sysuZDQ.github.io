@@ -309,5 +309,106 @@ or incorrect in some linguistic phenomenons.
   这里原文中也介绍了两类知识，并给出了对应的工作。
     - commonsense knowledge
     - factual knowledge
-- Robustness of PTMs
-- Structural Sparsity of PTMs
+- Robustness of PTMs  
+  研究发现，PTM在adversarial example时存在严重的健壮性问题。对抗样本是指在自然样本上添加微小的扰动而形成的样本, 相较于原有样本, 此类样本的改变通常不影响肉眼判断, 甚至于肉眼不可见, 但可以使训练好的模型以高置信度得出与原有样本不同的输出。
+- Structural Sparsity of PTMs    
+  研究发现，transformer是over parameterization的。    
+  Researchers have shown that the
+**multi-head attention structures are redundant** in the
+tasks of machine translation (Michel et al., 2019),
+abstractive summarization (Baan et al., 2019), and
+language understanding (Kovaleva et al., 2019),
+i.e., when removing part of attention heads, we can
+achieve better performance. This phenomenon is
+consistent to the observation in (Clark et al., 2019)
+where they find that **most heads in the same layer
+have similar self-attention patterns**. Furthermore,
+Kovaleva et al. (2019) conduct a qualitative and
+quantitative analysis of the information encoded
+by PTMs’ heads. Their findings suggest that the
+attention behaviors of **different heads can be categorized into a limited set of patterns**. Besides the
+multi-head attention, several other works explore
+to identify the **sparsity of parameters**. Gordon et al.
+(2020) show that l**ow levels of pruning (30-40%)**
+do not affect pre-training loss or the performance
+on downstream tasks at all. Targeting the sparsity
+during fine-tuning, Prasanna et al. (2020) validate
+the lottery ticket hypothesis on PTMs and find that
+it is possible to **find sub-networks** achieving performance that is comparable with that of the full
+model. Surprisingly, Kao et al. (2020) show that we
+can improvement the performance by **simply duplicating some hidden layers** to increase the model
+capacity, which suggests that the **redundant parameters may benefit the fine-tuning**.   
+
+Erhan et al. (2010) propose two hypotheses to explain the effect of pre-training: (1) **better optimization** and (2) **better regularization**.前者的解释是预训练过的网络相较于随机初始化的更接近全局最小值。后者的解释是PTM虽然训练误差没有更小，但是测试误差更小了，这就是正则化的功劳。进来，我们也发现，基于**对比学习**的预训练已经成为了主流。    
+
+## 四 未来工作方向
+悟已往之不谏，知来者之可追！既然我们已经洞悉预训练模型的前世与今生，那么我们不妨去追寻一番它未来的脚步。   
+具体来说可以分为七个方向
+- **Architectures and Pre-Training Methods**   
+  - **New Architectures**：transformer已经被证明是一个有效的结构，但是它的局限在于**计算复杂度**。受限于GPU的内存，序列长度一般都不能超过512个token。因此，一个挑战就是寻找可以捕捉**长文本**信息的结构。但是设计一个深度的网络架构往往比较困难，因此我们可以尝试一些自动化方法，如**neural architecture search**(NAS)。另一个问题就是，大规模的PTM不适用于**低容量或者低延迟**的设备与应用。最后一个是，不同的下游任务最好的架构往往是不同的，就比如decoder适合NLG，而encoder适合NLU。Therefore, we may need to carefully design **task-specific architectures** according to the type of downstream tasks.   
+  - **New Pre-Training Tasks**； 可以学习到通用知识的general-purpose
+PTMs是我们的追求。但是这样的PTM需要更深的结构、更多的数据、更难的预训练任务，这也意味着更大的训练开销，因此，a more practical
+direction is to design more efficient self-supervised
+pre-training tasks and training methods according
+to the capabilities of existing hardware and software。ELECTRA便是一个很好的尝试。 
+  - **Beyond Fine-Tuning**：当前来说，fine-tuning实际那个知识从PTM迁移到下游任务的主流方法。但是它有一个问题，就是parameter inefficiency，即每一个下游任务都有自己的fine-tuned参数。一个改进的方法是fix the original parameters of PTMs and
+add small fine-tunable adaption modules for specific tasks。随着GPT-3的诞生，一种称为prompt tuning的微调方式也出现在了大家的视野。它的作用包括 (1) bridge the gap between pre-training and
+fine-tuning, and thereby perform better on downstream tasks; (2) reduce the computational cost on
+fine-tuning the tremendous amounts of parameters.显然，这个方法具有光明的研究前景。  
+  - **Reliability**：将PTM用到生产环境的话，我们不得不考虑其可靠性。adversarial attacks不仅证明了PTM的能力，也暴露了它的脆弱性。因此，也有研究Adversarial defences的，以提高它应对攻击的健壮性。
+
+- **Multilingual and Multimodal Pre-Training**  
+  - **More Modalities**：我们可以加入视频和音频数据，但是问题是要考虑将时序信息也进行建模。另外，比如对于video-text pairs，传统的自监督方法因为计算开销太大不能使用，因此，it is important to develop more effective
+and efficient self-supervised learning methods for
+more complex modalities.
+
+  - **More Insightful Interpretation**：the latest visualization tools for deep learning
+can be exploited for the interpretation of multimodal pre-training
+
+  - **More Downstream Application**： it is still challenging to find a
+“true” real-world application scenario for multimodal pre-training, since many effective engineering tricks can be leveraged instead
+  - **Transfer Learning**： a new pretraining framework should be explored to easily adapt to those unseen languages.ow to directly transfer the source language
+audio to the target language text or target language
+audio by multimodal multilingual PTMs is also
+worth exploring.
+  
+- **Computational Efficiency**  
+  像tenseorflow和pytorch这些都没有预见到像大模型中的并行需要。  
+  - **Data Movement**：针对分布式深度学习框架，我们需要考虑高效地移动设备之间的数据，最好还能自动化生成这些并行策略。
+  - **Parallelism Strategies**：Particular to the choice
+of parallelism strategy, data parallelism, model
+parallelism, pipeline parallelism, and various hybrid parallelism approaches can find their best usage depending on the structure of neural networks
+and hardware configuration
+  - **Large-Scale Training**：考虑到当前深度学习框架下对模型并行和流水线并行的支持比较差，一些工作会选择直接构建用于大模型的深度学习框架，如HugeCTR、Megatron-LM、DeepSpeed、Insight-Face等。
+  - **Wrappers and Plugins**：Without a mechanism to
+support model parallelism and pipeline parallelism,
+one has to develop various libraries dedicated to
+some particular algorithms via inserting the data
+routing operations by hand between computing operations on top of existing frameworks.If communication operations can be automatically managed transparently
+to users by deep learning frameworks, more models
+and applications can benefit from the distributed
+training.To support more complicated parallelism strategies, many schemes are used as wrappers or plugins based on some mainstream deep learning
+frameworks such as TensorFlow and PyTorch.The automatic scheduling
+of parallelism strategies is the trend of distributed
+training in the future.
+
+
+- **Theoretical Foundation**   
+  - **Uncetainty**：One under-addressed issue with
+PTMs (as well as other deep neural networks) is
+that they are often **over-confident** in predictions,
+i.e., these models do not know what they do not
+know. It is generally a challenging task to deal with such **out-of distribution** (OOD) data in machine learning.To address the above challenge, one promising
+direction is to adopt **Bayesian methods** that explore
+probabilistic tools to capture the uncertainty of both
+data and model or derive some testing statistics.
+
+  - **Generalization and Robustness**：it
+is important to theoretically understand the roles
+of pre-training in improving the generalization of
+downstream tasks.it was shown that a higher sample complexity is
+needed in order to achieve adversarial robustness
+for neural networks.
+- **Modeledge Learning**
+- **Cognitive and Knowledgeable Learning**
+- **Applications**
