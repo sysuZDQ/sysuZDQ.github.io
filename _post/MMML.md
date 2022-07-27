@@ -1,4 +1,4 @@
-# Multimodal Machine Learning
+# [Multimodal Machine Learning:A Survey and Taxomony](https://people.ict.usc.edu/~gratch/CSCI534/Readings/Baltrusaitis-MMML-survey.pdf#:~:text=Multimodal%20machine%20learning%20aims%20to%20build%20models%20that,%EF%AC%81eld%20of%20increasing%20importance%20and%20with%20extraordinary%20potential.)
 我们所处的世界是多模态的，我们可以看见、听见，摸到、闻到、尝到......   
 显然，如果我们的模型也能像人类一样，从多个角度去观察事物，那么它得到的信息肯定更加地全面、准确。   
 目前来说，MMML面临的挑战包括 representation, translation, alignment, fusion, and co-learning   
