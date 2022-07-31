@@ -53,4 +53,6 @@
 1. [kownledge Graph](-post/KG.md)
 2. [Multimodal Machine Learning](_post/MMML.md)
 3. [An Introduction to Natural Language Processing](_post/NLP.md)
-4. [An Introduction to Machine Learning](_psot/ML.md)
+4. [An Introduction to Machine Learning](_post/Deep%20learning.md)
+5. [An Introduction to Pre-Train](_post/Pre-train.md)
+6. [An Introduction to Prompt](_post/Prompt.md)
