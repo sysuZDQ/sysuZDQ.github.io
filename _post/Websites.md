@@ -19,6 +19,7 @@
 11. [论文检索网站](https://www.jianshu.com/p/3cd36358fbe0)
 12. [best paper](https://jeffhuang.com/best_paper_awards/)
 13. [寇享](https://www.koushare.com/)
+14. [推荐系统论文集](https://github.com/wzhe06/Reco-papers)
 ## 论文写作
 1. [如何做研究与写论文--周志华](https://zhuanlan.zhihu.com/p/98747105)
 2. [conference list](http://www.conferencelist.info/upcoming.html)
