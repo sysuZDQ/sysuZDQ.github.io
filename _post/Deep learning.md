@@ -34,4 +34,6 @@
 RNN的公式为$S_{t}=f(W_{in}X+W_SS_{t-1}+b)$   
 <div align=center><img src="..\image\DL\575a470f4e25d2debbf0e789372d1fe.jpg" width="500"></div> 
 
-至于RNN的记忆问题，可以想象，间隔越长，梯度越小，如$f(g(h(x)))=0.1*0.1*0.1$
+至于RNN的记忆问题，可以想象，间隔越长，梯度越小，如$f(g(h(x)))=0.1*0.1*0.1$   
+为了解决该问题，LSTM诞生了   
+<div align=center><img src="..\image\DL\490a5d78edc4fe3af683f646b41a4d4.jpg" width="500"></div> 
