@@ -36,4 +36,16 @@ RNN的公式为$S_{t}=f(W_{in}X+W_SS_{t-1}+b)$
 
 至于RNN的记忆问题，可以想象，间隔越长，梯度越小，如$f(g(h(x)))=0.1*0.1*0.1$   
 为了解决该问题，LSTM诞生了   
-<div align=center><img src="..\image\DL\490a5d78edc4fe3af683f646b41a4d4.jpg" width="500"></div> 
+<div align=center><img src="..\image\DL\490a5d78edc4fe3af683f646b41a4d4.jpg" width="500"></div>    
+
+## ***Transformer***
+最简单的encoder-decoder架构就是将一个RNN分为两部分。
+<div align=center><img src="..\image\DL\44ee6d5374ee1cef56b5c4a5b832b19.jpg" width="500"></div>    
+但是仅仅以一个$C$来存储一个句子的信息精度有限，因此使用attention机制对每一个token都产生一个表征。
+<div align=center><img src="..\image\DL\1fa446e67a14de71cd94678444ae043.jpg" width="500"></div>  
+这样还有一个问题，就是不能并行操作，特别对于现在普遍使用GPU进行运算来说，这样的特性显然是不能被容忍的。既然我们已经使用attention机制融合了上下文，那么这个顺序运算我们可以去除   
+<div align=center><img src="..\image\DL\1ead9a280b2c0480127a40d3dda97aa.jpg" width="500"></div>   
+最后，我们给出关于attention的一些基本知识  
+<div align=center><img src="..\image\DL\561d05caebced4fedbc72d77ac949bc.jpg" width="500"></div>    
+
+想进一步了解transformer的同学，可以看我对论文[Attention Is All You Need](../_post/论文解读/Attention%20Is%20All%20You%20Need.md)的解读！
