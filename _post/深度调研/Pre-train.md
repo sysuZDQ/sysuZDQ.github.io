@@ -112,8 +112,8 @@ Top-k learning to rank
     1. 这属于对一些数学原理十分了解才能迁移过来的想法了
 11. 新兴的研究方向
     1. Neural-Symbolic：将原本对立的连接主义和符号主义结合的一个新兴研究方向   https://zhuanlan.zhihu.com/p/463013878
-    2. Instruction tuning     
-    3. https://mp.weixin.qq.com/s?__biz=MzAxMTk4NDkwNw==&mid=2247488283&idx=1&sn=6323ec0585df7c723795e3bfab38cdc5&chksm=9bb99a7facce136946b48aa07da7e4508b388b557c31bbf0dcbf334cbf74010d0d85792a300f&token=337802366&lang=zh_CN#rd
+    2. Instruction tuning     https://mp.weixin.qq.com/s?__biz=MzAxMTk4NDkwNw==&mid=2247488283&idx=1&sn=6323ec0585df7c723795e3bfab38cdc5&chksm=9bb99a7facce136946b48aa07da7e4508b388b557c31bbf0dcbf334cbf74010d0d85792a300f&token=337802366&lang=zh_CN#rd
+    3. 元学习
 
 12. 统一！
     1. 例如统一下游任务，数据很难获取，不希望这些数据训练出来的模型仅仅解决一些任务
