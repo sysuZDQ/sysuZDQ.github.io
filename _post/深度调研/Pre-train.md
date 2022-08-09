@@ -92,6 +92,7 @@ Top-k learning to rank
    15. 低容量、低延迟解决方案
    16. 微调时候的问题，parameter-inefficient，每一个下游任务都有自己的微调参数
    17. 模型往往over-confident，就是可能没有答案的问题他也给你一个答案，这就会产生OOD数据。
+   18. look forward twice 
 
 ---
 
