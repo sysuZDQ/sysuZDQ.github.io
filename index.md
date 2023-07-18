@@ -22,8 +22,12 @@
 1. [BERT-Based Model](_post/Paper Reading/BERT-Based Model.md)
 
 ### Data Structures & Algorithm Analysis
-1. [Leetcode List](https://motley-eoraptor-5f4.notion.site/6c292f85ec6145fe94b5c6afaf733728?v=96fee6ad543641a1911fe66dcb6b444c)
-2. 
+- [Leetcode List](https://motley-eoraptor-5f4.notion.site/6c292f85ec6145fe94b5c6afaf733728?v=96fee6ad543641a1911fe66dcb6b444c)
+- [🔥 LeetCode 热题 HOT 100 - 力扣（LeetCode）](https://leetcode.cn/problem-list/2cktkvj/)
+- [剑指 Offer（第 2 版） - 力扣（LeetCode）](https://leetcode.cn/problem-list/xb9nqhhg/)
+- [小浩算法](https://www.geekxh.com/)
+- [Hello 算法 (hello-algo.com)](https://www.hello-algo.com/)
+- [CS自学指南](https://csdiy.wiki/)
 
 ### Programming Language
 
