@@ -22,6 +22,8 @@
 1. [BERT-Based Model](_post/Paper Reading/BERT-Based Model.md)
 
 ### Data Structures & Algorithm Analysis
+1. [Leetcode List](https://motley-eoraptor-5f4.notion.site/6c292f85ec6145fe94b5c6afaf733728?v=96fee6ad543641a1911fe66dcb6b444c)
+2. 
 
 ### Programming Language
 
