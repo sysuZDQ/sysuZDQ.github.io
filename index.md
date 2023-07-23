@@ -21,7 +21,7 @@ layout: default
 1. **IDE:**[VScode](https://blog.csdn.net/weixin_50821119/article/details/110528064)
 2. **Remote Sever:**[MobaXtrem](https://mobaxterm.mobatek.net/)
 3. **Paper Management Software:**[Mendeley](https://www.mendeley.com/)
-4. **Git:**[Git](post\Tools\Git.md)
+4. **Git:**[Git](post\Tools\Git.html)
 
 
 
@@ -33,7 +33,6 @@ layout: default
 
 ### Papers Reading
 该篇章记录一些研究过的论文
-1. [BERT-Based Model](post/Paper Reading/BERT-Based Model.md)
 
 ### Data Structures & Algorithm Analysis
 该篇章记录学习算法的过程
