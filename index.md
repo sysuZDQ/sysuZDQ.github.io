@@ -21,7 +21,7 @@ layout: default
 1. **IDE:**[VScode](https://blog.csdn.net/weixin_50821119/article/details/110528064)
 2. **Remote Sever:**[MobaXtrem](https://mobaxterm.mobatek.net/)
 3. **Paper Management Software:**[Mendeley](https://www.mendeley.com/)
-4. **Git:**[Git](post\Tools\Git.html)
+4. **Git:**[Git](post\Tool\Git.html)
 
 
 
@@ -45,6 +45,7 @@ layout: default
 
 ### Fundamentals of Computer
 该篇章记录学习编程的基础知识
+- [基础课程](post\Fundamentals of Computer\Lessons_in_College.html)
 
 ### Framework
 1. [TensorFlow](post/Framework/TensorFlow.md)
