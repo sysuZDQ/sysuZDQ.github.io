@@ -1,10 +1,11 @@
 # theme: jekyll-theme-architect
-theme: Hamilton
 encoding: utf-8 with BOM
-
-
+remote_theme: pages-themes/architect@v0.2.0
 plugins:
-  - jekyll-relative-links
+- jekyll-remote-theme # add this line to the plugins list if you already have one
+
+# plugins:
+#   - jekyll-relative-links
 relative_links:
   enabled: true
   collections: true
@@ -18,3 +19,4 @@ include:
   - ISSUE_TEMPLATE.md
   - PULL_REQUEST_TEMPLATE.md
 title: sysuZDQ's BLOG
+description: Here are “Dribs and Drabs” about chasing after being a good coder!
