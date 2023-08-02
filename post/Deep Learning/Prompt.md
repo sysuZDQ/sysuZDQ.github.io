@@ -16,12 +16,12 @@ Prompting Methods in Natural Language Processing](https://arxiv.org/pdf/2107.135
 **预训练与微调**：从2017-2019年，NLP模型的学习发生了巨大的变化，这种完全监督的范式现在发挥的作用越来越小。具体来说，标准转向了预训练和微调范式。在这个范式中，一个具有固定架构的模型被预训练为语言模型（LM），预测观察到的文本数据的概率。由于训练LM所需的原始文本数据大量存在，这些LM可以在大型数据集上进行训练，在此过程中学习它所建模的语言的强大通用特征。然后，上述预训练的LM将通过引入额外的参数和使用特定任务的目标函数进行微调来适应不同的下游任务。在这个范式中，重点主要转向目标工程，设计在预训练和微调阶段都使用的训练目标。    
 
 **预训练、提示和预测**：在这种模式下，不是通过客观工程使预训练的LM适应下游任务，而是在文本提示的帮助下，重新制定下游任务，使其看起来更像原始LM训练期间解决的任务。这种方法的优点是，给定一套适当的提示，以完全无监督的方式训练的单一LM可以用来解决大量的任务。然而，与大多数概念上诱人的前景一样，有一个问题--这种方法引入了提示工程的必要性，即找到最合适的提示，让LM解决手头的任务。
-<div align=center><img src="..\image\prompt\09af0172b7ded7a8da41f1f323bf7a8.jpg" width="500"></div>    
+<div align=center><img src="..\..\image\prompt\09af0172b7ded7a8da41f1f323bf7a8.jpg" width="500"></div>    
 
 
 ## 二 提示学习的公式描述   
 首先看一个例子以便让我们对提示学习有一个直观的印象。  
-<div align=center><img src="..\image\prompt\a03ac6a133d660a5e6fb7c0e67888d5.jpg" width="500"></div>    
+<div align=center><img src="..\..\image\prompt\a03ac6a133d660a5e6fb7c0e67888d5.jpg" width="500"></div>    
 可以看到，要完成一个提示学习，我们需要经过以下三个步骤        
 
 - 附加提示    
@@ -31,7 +31,7 @@ $[Z]$ for an intermediate generated answer text $z$ that will later be mapped in
   - Fill slot $[X]$ with the input text $x$.     
   
   下面给出常用的提示模板  
-  <div align=center><img src="..\image\prompt\90caf5d0d6f500a72627f255500934d.jpg" width="500"></div>   
+  <div align=center><img src="..\..\image\prompt\90caf5d0d6f500a72627f255500934d.jpg" width="500"></div>   
 
 - 答案搜索   
   寻找最高分的文本$\hat z$，使LM的得分最大化。下面的搜索函数可以是搜索最高分输出的*argmax*搜索，也可以是按照LM的概率分布随机生成输出的*sampling*。  
@@ -40,12 +40,12 @@ $[Z]$ for an intermediate generated answer text $z$ that will later be mapped in
   我们想从最高分的答案$\hat z$到最高分的输出$\hat y$，这在某些情况下是很简单的，因为答案本身就是输出（如翻译等语言生成任务）。但也有其他情况，多个答案可能导致相同的输出。例如，人们可能使用多个不同的带感情色彩的词（如 "优秀"、"美妙"、"精彩"）来代表一个类别（如 "++"），在这种情况下，有必要在搜索到的答案和输出值之间建立一个映射。   
 
 现在我们有了基本的数学公式描述，接下来我们将阐述提示方法中的一些基本设计考虑，包括预训练模型的选择、提示工程、答案工程、拓展范式、基于提示的训练策略，下面先给出一张统计表。
-<div align=center><img src="..\image\prompt\aae74b59f62dde04f46cc13aa7f5455.jpg" width="500"></div>    
+<div align=center><img src="..\..\image\prompt\aae74b59f62dde04f46cc13aa7f5455.jpg" width="500"></div>    
 
 ## 三 预训练语言模型    
 在本章中，我们提出了对各种预训练的LM的系统性看法，即（i）以更系统的方式沿着各种轴线组织它们，（ii）特别关注对提示方法突出的方面。   
 下面给出一张预训练模型的总结表。  
-<div align=center><img src="..\image\prompt\d7fb70b48a8bd3427559de4007421c6.jpg" width="500"></div>    
+<div align=center><img src="..\..\image\prompt\d7fb70b48a8bd3427559de4007421c6.jpg" width="500"></div>    
 下面我们将从四个方面对预训练模型进行分析。    
 
 - 训练目标   
@@ -56,19 +56,19 @@ $[Z]$ for an intermediate generated answer text $z$ that will later be mapped in
   - Full Text Reconstruction (FTR)：这些目标通过计算整个输入文本的损失来重构文本，无论其是否经过噪声处理    
 
   预训练的LM的主要训练目标在确定其对特定提示任务的适用性方面起着重要作用。例如，从左到右的自回归LM可能特别适合于前缀提示，而重建目标可能更适合于cloze提示。此外，用标准的LM和FTR目标训练的模型可能更适合于有关文本生成的任务，而其他任务，如分类，可以用这些目标中的任何一个训练的模型来制定。除了上述主要的训练目标外，还设计了一些辅助目标来进一步提高模型执行某些种类的下游任务的能力。我们在下表中列出了一些常用的辅助目标。
-  <div align=center><img src="..\image\prompt\68ede155d7a22396b0981225548c6c0.jpg" width="500"></div>      
+  <div align=center><img src="..\..\image\prompt\68ede155d7a22396b0981225548c6c0.jpg" width="500"></div>      
 
 - 噪声功能   
   在基于重建的训练目标中，应用于获得噪声文本$\hat x$的特定类型的损坏对学习算法的功效有影响。此外，可以通过控制噪声的类型来纳入先验知识，例如，噪声可以集中在一个句子的实体上，这使得我们可以学习一个预训练好的模型，对实体的预测性能特别高。下表给出几种噪声函数。值得注意的是，下面给出的是NLP的噪声函数，我们也可以思考一下如何映射到CV领域中。   
-  <div align=center><img src="..\image\prompt\4056fa948a3bad9efdfbd1fef5126d3.jpg" width="500"></div>    
+  <div align=center><img src="..\..\image\prompt\4056fa948a3bad9efdfbd1fef5126d3.jpg" width="500"></div>    
 - 表示的方向性    
   在理解预训练的LM以及它们之间的区别时，最后一个重要因素是计算表示的方向性。一般来说，有两种广泛使用的方法来计算这种表示。    
   - Left-to-Right 
   - Bidirectional
 - 典型的预训练模型  
   我们介绍了四种流行的预训练方法，由目标、噪声函数和方向性的不同组合产生。下面先给出两张总结表。
-    <div align=center><img src="..\image\prompt\32f3b6f6154f5fed566bbbe9a767e94.jpg" width="500"></div> 
-     <div align=center><img src="..\image\prompt\5ef7dff9b2b1044fadf88df806f2648.jpg" width="500"></div> 
+    <div align=center><img src="..\..\image\prompt\32f3b6f6154f5fed566bbbe9a767e94.jpg" width="500"></div> 
+     <div align=center><img src="..\..\image\prompt\5ef7dff9b2b1044fadf88df806f2648.jpg" width="500"></div> 
 
   -  Left-to-Right Language Model
   -  Masked Language Models
@@ -119,7 +119,7 @@ $[Z]$ for an intermediate generated answer text $z$ that will later be mapped in
 
 ## 六 多提示学习    
 下面先给出一些具有代表性的多提示学习方法    
-<div align=center><img src="..\image\prompt\dd0a644926cec418f4a21ed6d61f76f.jpg" width="500"></div> 
+<div align=center><img src="..\..\image\prompt\dd0a644926cec418f4a21ed6d61f76f.jpg" width="500"></div> 
 
 - Prompt Ensembling    
   提示集合是指在推理时间使用多个未回答的提示输入来进行预测的过程。图4-(a)中显示了一个例子。这种提示集合可以（1）利用不同提示的互补优势，（2）减轻提示工程的成本，因为选择一个表现最好的提示是具有挑战性的，（3）稳定下游任务的性能。下面是组合的方法    
@@ -144,7 +144,7 @@ $[Z]$ for an intermediate generated answer text $z$ that will later be mapped in
 
 - 参数更新方法  
   在基于提示的下游任务学习中，通常有两类参数，即来自（1）预训练的模型和（2）提示的参数。哪一部分参数应该被更新是一个重要的设计决定，这可能导致不同场景下的不同适用程度。我们总结了五种优化策略（如表6所示），基于（i）是否优化基础LM的参数，（ii）是否有额外的提示相关参数，（iii）如果有额外的提示相关参数，这些参数是否被微调。    
-  <div align=center><img src="..\image\prompt\7c38a3cf6a5f119e8d3c511c557155f.jpg" width="500"></div> 
+  <div align=center><img src="..\..\image\prompt\7c38a3cf6a5f119e8d3c511c557155f.jpg" width="500"></div> 
 
   - Promptless Fine-tuning   
      - 优点。简单性，不需要及时设计。调整所有的LM参数可以使模型适应更大的训练数据集。
@@ -170,8 +170,8 @@ $[Z]$ for an intermediate generated answer text $z$ that will later be mapped in
 
 ## 八 应用   
 在前几节中，我们从方法本身的机制的角度来研究提示方法。在本节中，我们更倾向于从它们被应用于哪些应用的角度来组织提示方法。我们在表7-8中列出了这些应用。   
-<div align=center><img src="..\image\prompt\71e8e5aafcf3c4bd258efe74dfb250d.jpg" width="500"></div> 
-<div align=center><img src="..\image\prompt\0d1f30bc93090352eae3ce604fdd019.jpg" width="500"></div>   
+<div align=center><img src="..\..\image\prompt\71e8e5aafcf3c4bd258efe74dfb250d.jpg" width="500"></div> 
+<div align=center><img src="..\..\image\prompt\0d1f30bc93090352eae3ce604fdd019.jpg" width="500"></div>   
 
 - 知识探测
 - 基于分类的任务
@@ -183,8 +183,8 @@ $[Z]$ for an intermediate generated answer text $z$ that will later be mapped in
 - 多模态学习
 - 元应用  
 最后，给出一些数据集以及现有的手工设计的常用提示语  
-<div align=center><img src="..\image\prompt\2f6fd78401cad81f50473df620fcc92.jpg" width="500"></div>
-<div align=center><img src="..\image\prompt\9311c5ba8b663168b1494c377ecf81a.jpg" width="500"></div>    
+<div align=center><img src="..\..\image\prompt\2f6fd78401cad81f50473df620fcc92.jpg" width="500"></div>
+<div align=center><img src="..\..\image\prompt\9311c5ba8b663168b1494c377ecf81a.jpg" width="500"></div>    
 
 
 ## 九 与提示学习有关的主题  
@@ -234,6 +234,6 @@ $[Z]$ for an intermediate generated answer text $z$ that will later be mapped in
 
 ## 十一 元分析   
 在本节中，我们旨在通过对不同维度的现有研究工作进行元分析，对现有的提示方法的研究提供一个定量的鸟瞰图。   
-<div align=center><img src="..\image\prompt\1cfcf72770fed1c882615173855c2d9.jpg" width="500"></div>    
+<div align=center><img src="..\..\image\prompt\1cfcf72770fed1c882615173855c2d9.jpg" width="500"></div>    
 我们还计算了基于提示的论文在不同维度上的数量。   
-<div align=center><img src="..\image\prompt\11fd875170c9d519ab635d095592861.jpg" width="500"></div>     
+<div align=center><img src="..\..\image\prompt\11fd875170c9d519ab635d095592861.jpg" width="500"></div>     

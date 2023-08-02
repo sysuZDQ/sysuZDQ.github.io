@@ -2,82 +2,76 @@
 layout: default
 ---
 
-## Welcome to My GitHub Pages
+# Welcome to My GitHub Pages
 ***From Baby to Gaint. This is All You Need!***
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22712636&auto=1&height=66"></iframe>
 ![GSW](image/2022finals.jpg "GSW")
 
 本博客仅用于记录自身所学！持续更新中......
-### Skills
-
-
-### Project
+<!-- 这里写一下自己的技术能力 -->
+## Project Experience
 该篇章记录部分实践项目
 - [WebServer](post\Project\WebServer.html)
+- [GitHub Page](post/Project/GithubPage.html)
+
+***To be Uploaded***
+- [Sentiment Analysis on Twitter]()
+- [Question Answering on SQuAD2.0]()
+- [Data Processing on Remote Sensing Images]()
+- [Fine-grained Image Recognition via CLIP]()
+- [Infusing Knowledge into CLIP with Adapter for Video Retrieval Task]()
+- [基于图文预训练模型的视频-文本检索方法及系统]()
 
 
+## Fundamentals of Computer
+该篇章记录学习编程的基础知识
+- [本科基础课程](post/Fundamentals%20of%20Computer/Lessons_in_College.html)
+- [计算机网络](post/Fundamentals%20of%20Computer/计算机网络%205b23428c487d4aad9d4d58b9cc05eefc.html)
+- [操作系统](post/Fundamentals%20of%20Computer/操作系统%202c476e65bedd4ea48ddce8c8fdc15f36.html)
+- [Linux](post/Fundamentals%20of%20Computer/Linux%20e0d1ca4833c14e5a8c23ad77140dcdb2.html)
+- [Deep Learing(西瓜书)](post/Deep%20Learning/西瓜书复习%2092cf2a17f0a94f80bcc9f16802eff22f.html)
+
+
+## Systematic Research
+该篇章记录在研究生期间曾研究过的一些领域
+1. [Multimodal Machine Learning](post/Deep%20Learning/MMML.html)
+2. [An Introduction to Machine Learning](post/Deep%20Learning/Deep%20learning.html)
+3. [An Introduction to Pre-Train](post/Deep%20Learning/Pre-train.html)
+4. [An Introduction to Prompt](post/Deep%20Learning/Prompt.html)
+5. [Artificial Intelligence in Industry](post/Deep%20Learning/IndustrialDL.html)
+6. [Dive into Multimodel Pretraining](post/Deep%20Learning/Zero%20to%20Hero%20e13074a921e441309ca2c69fd25524c5.html)
+7. [Parameter Efficient Fine-tuning]()
+
+## Practical Resources
+这里收藏一些有帮助的资源
 ### Tools
-该篇章记录一些实用工具
-1. **IDE:**[VScode](https://blog.csdn.net/weixin_50821119/article/details/110528064)
-2. **Remote Sever:**[MobaXtrem](https://mobaxterm.mobatek.net/)
-3. **Paper Management Software:**[Mendeley](https://www.mendeley.com/)
-4. **Git:**[Git](post\Tool\Git.html)
-
+-  **IDE:**[VScode](https://blog.csdn.net/weixin_50821119/article/details/110528064)
+- **Remote Sever:**[MobaXtrem](https://mobaxterm.mobatek.net/)
+- **Paper Management Software:**[Mendeley](https://www.mendeley.com/)
+- **Git:**[Git](post\Tool\Git.html)
 
 
 ### Books & Lessons
 该篇章记录一些学习资料
-1. [Deep Learning from Scratch](books/DL from scratch.pdf) 
-2. [Road 2 Coding](https://r2coding.com)
-
+- [Deep Learning from Scratch](books/DL%20from%20scratch.pdf) 
+- [Knowledge Graph](books/DL%20and%20KG.pdf)
+- [NLP with Python](books/NLP%20with%20python.pdf)
+- [Pumpkin Book](books/pumpkin_book.pdf)
+- [Road 2 Coding](https://r2coding.com)
+- [Collection of Websites](post/Resource/Websites.html)
+- [Awesome Github](post/Resource/Awesome%20Github%209a9a0304ecba44b4893f79f023066fb1.html)
 
 ### Papers Reading
-该篇章记录一些研究过的论文
+*To Be Done*
+这里整理阅读过的一些论文
 
-### Data Structures & Algorithm Analysis
-该篇章记录学习算法的过程
-- [Leetcode List](https://motley-eoraptor-5f4.notion.site/6c292f85ec6145fe94b5c6afaf733728?v=96fee6ad543641a1911fe66dcb6b444c)
-- [🔥 LeetCode 热题 HOT 100 - 力扣（LeetCode）](https://leetcode.cn/problem-list/2cktkvj/)
-- [剑指 Offer（第 2 版） - 力扣（LeetCode）](https://leetcode.cn/problem-list/xb9nqhhg/)
-- [小浩算法](https://www.geekxh.com/)
-- [Hello 算法 (hello-algo.com)](https://www.hello-algo.com/)
-- [CS自学指南](https://csdiy.wiki/)
+### Tittle-Tattle
+- [what you have to considerate before you want to be a doctor](https://gong.ustc.edu.cn/2022/0107/c21173a559545/page.htm)
+- [What you need to do to get a decent work](post/杂谈/关于找工作.html)
+- [Way of Research](post/杂谈/我的科研观.html)
 
-### Fundamentals of Computer
-该篇章记录学习编程的基础知识
-- [本科基础课程](post/Fundamentals%20of%20Computer/Lessons_in_College.md)
-- [计算机网络](post/Fundamentals%20of%20Computer/计算机网络%205b23428c487d4aad9d4d58b9cc05eefc.html)
-- [操作系统](post/Fundamentals%20of%20Computer/操作系统%202c476e65bedd4ea48ddce8c8fdc15f36.html)
-- [Linux](post/Fundamentals%20of%20Computer/Linux%20e0d1ca4833c14e5a8c23ad77140dcdb2.html)
 
-### Framework
-1. [TensorFlow](post/Framework/TensorFlow.md)
-2. [PyTorch](post/Framework/PyTorch.md)
 
-### Python Library
-1. [all kinds of Python Library](image/Python 库类大全.png)
-2. [hyperparameters tuning and feature selection](https://github.com/rodrigo-arenas/Sklearn-genetic-opt)
 
-### About Ph.D
-1. [what you have to considerate before you want to be a doctor ](https://gong.ustc.edu.cn/2022/0107/c21173a559545/page.htm)
 
-### Personal Learning
-1. [Github Pages](post/Github Pages.md)
-2. [Websites](post/Websites.md)
 
-### Project Experience
-1. [SM9]()
-2. [GIS]()
-3. [OCR]()
-4. [Flask]()
-5. [SLAM]()
-6. [SA]()
-7. [SQuAD2.0]()
-
-### Systematic Research
-1. [kownledge Graph](post/KG.md)
-2. [Multimodal Machine Learning](post/MMML.md)
-3. [An Introduction to Natural Language Processing](post/NLP.md)
-4. [An Introduction to Machine Learning](post/Deep%20learning.md)
-5. [An Introduction to Pre-Train](post/Pre-train.md)
-6. [An Introduction to Prompt](post/Prompt.md)
