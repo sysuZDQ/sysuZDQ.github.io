@@ -32,7 +32,9 @@ layout: default
 - [操作系统](post/Fundamentals%20of%20Computer/操作系统%202c476e65bedd4ea48ddce8c8fdc15f36.html)
 - [Pytorch](post/Fundamentals%20of%20Computer/Pytorch%203bdab1c7b204400d81e53427915215ee.html)
 - [Python](post/Fundamentals%20of%20Computer/Python%2006fd7f71758d4978b8f31f63a470b470.html)
+- [数据库](post/Fundamentals%20of%20Computer/数据库%201bedb8930aa6435798e72eadd48d46f1.html)
 - [Linux](post/Fundamentals%20of%20Computer/Linux%20e0d1ca4833c14e5a8c23ad77140dcdb2.html)
+
 
 
 
