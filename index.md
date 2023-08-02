@@ -25,12 +25,15 @@ layout: default
 
 ## Fundamentals of Computer
 该篇章记录学习编程的基础知识
-- [本科基础课程](post/Fundamentals%20of%20Computer/Lessons_in_College.html)
+- [Deep Learing(西瓜书)](post/Deep%20Learning/西瓜书复习%2092cf2a17f0a94f80bcc9f16802eff22f.html)
+- [本科基础课程汇总](post/Fundamentals%20of%20Computer/Lessons_in_College.html)
+- [算法与数据结构](post/Fundamentals%20of%20Computer/算法与数据结构%20ba07ea3804ed46ef80664c5d7a305b7a.html)
 - [计算机网络](post/Fundamentals%20of%20Computer/计算机网络%205b23428c487d4aad9d4d58b9cc05eefc.html)
 - [操作系统](post/Fundamentals%20of%20Computer/操作系统%202c476e65bedd4ea48ddce8c8fdc15f36.html)
-- [Linux](post/Fundamentals%20of%20Computer/Linux%20e0d1ca4833c14e5a8c23ad77140dcdb2.html)
+- [Pytorch](post/Fundamentals%20of%20Computer/Pytorch%203bdab1c7b204400d81e53427915215ee.html)
 - [Python](post/Fundamentals%20of%20Computer/Python%2006fd7f71758d4978b8f31f63a470b470.html)
-- [Deep Learing(西瓜书)](post/Deep%20Learning/西瓜书复习%2092cf2a17f0a94f80bcc9f16802eff22f.html)
+- [Linux](post/Fundamentals%20of%20Computer/Linux%20e0d1ca4833c14e5a8c23ad77140dcdb2.html)
+
 
 
 ## Systematic Research
@@ -64,6 +67,7 @@ layout: default
 
 ### Papers Reading
 *To Be Done*
+
 这里整理阅读过的一些论文
 
 ### Tittle-Tattle
