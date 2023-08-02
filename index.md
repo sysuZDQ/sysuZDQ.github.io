@@ -29,6 +29,7 @@ layout: default
 - [计算机网络](post/Fundamentals%20of%20Computer/计算机网络%205b23428c487d4aad9d4d58b9cc05eefc.html)
 - [操作系统](post/Fundamentals%20of%20Computer/操作系统%202c476e65bedd4ea48ddce8c8fdc15f36.html)
 - [Linux](post/Fundamentals%20of%20Computer/Linux%20e0d1ca4833c14e5a8c23ad77140dcdb2.html)
+- [Python](post/Fundamentals%20of%20Computer/Python%2006fd7f71758d4978b8f31f63a470b470.html)
 - [Deep Learing(西瓜书)](post/Deep%20Learning/西瓜书复习%2092cf2a17f0a94f80bcc9f16802eff22f.html)
 
 
