@@ -45,8 +45,10 @@ layout: default
 
 ### Fundamentals of Computer
 该篇章记录学习编程的基础知识
-- [基础课程](post/Fundamentals%20of%20Computer/Lessons_in_College.md)
+- [本科基础课程](post/Fundamentals%20of%20Computer/Lessons_in_College.md)
 - [计算机网络](post/Fundamentals%20of%20Computer/计算机网络%205b23428c487d4aad9d4d58b9cc05eefc.html)
+- [操作系统](post/Fundamentals%20of%20Computer/操作系统%202c476e65bedd4ea48ddce8c8fdc15f36.md)
+- [Linux](post/Fundamentals%20of%20Computer/Linux%20e0d1ca4833c14e5a8c23ad77140dcdb2.md)
 
 ### Framework
 1. [TensorFlow](post/Framework/TensorFlow.md)
