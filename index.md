@@ -7,20 +7,22 @@ layout: default
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22712636&auto=1&height=66"></iframe>
 ![GSW](image/2022finals.jpg "GSW")
 
-本博客仅用于记录自身所学！持续更新中......
+***本博客仅用于记录自身所学！持续更新中......***
 <!-- 这里写一下自己的技术能力 -->
 ## Project Experience
 该篇章记录部分实践项目
-- [WebServer](post\Project\WebServer.html)
 - [GitHub Page](post/Project/GithubPage.html)
+- [WebServer](post\Project\WebServer.html)
+
 
 ***To be Uploaded***
-- [Sentiment Analysis on Twitter]()
-- [Question Answering on SQuAD2.0]()
-- [Data Processing on Remote Sensing Images]()
-- [Fine-grained Image Recognition via CLIP]()
 - [Infusing Knowledge into CLIP with Adapter for Video Retrieval Task]()
 - [基于图文预训练模型的视频-文本检索方法及系统]()
+- [Data Processing on Remote Sensing Images]()
+- [Fine-grained Image Recognition via CLIP]()
+- [Question Answering on SQuAD2.0]()
+- [Sentiment Analysis on Twitter]()
+
 
 
 ## Fundamentals of Computer
@@ -40,13 +42,13 @@ layout: default
 
 ## Systematic Research
 该篇章记录在研究生期间曾研究过的一些领域
-1. [Multimodal Machine Learning](post/Deep%20Learning/MMML.html)
-2. [An Introduction to Machine Learning](post/Deep%20Learning/Deep%20learning.html)
-3. [An Introduction to Pre-Train](post/Deep%20Learning/Pre-train.html)
-4. [An Introduction to Prompt](post/Deep%20Learning/Prompt.html)
-5. [Artificial Intelligence in Industry](post/Deep%20Learning/IndustrialDL.html)
-6. [Dive into Multimodel Pretraining](post/Deep%20Learning/Zero%20to%20Hero%20e13074a921e441309ca2c69fd25524c5.html)
-7. [Parameter Efficient Fine-tuning]()
+- [An Introduction to Machine Learning](post/Deep%20Learning/Deep%20learning.html)
+- [Dive into Multimodel Pretraining](post/Deep%20Learning/Zero%20to%20Hero%20e13074a921e441309ca2c69fd25524c5.html)
+- [Artificial Intelligence in Industry](post/Deep%20Learning/IndustrialDL.html)
+- [Parameter Efficient Fine-tuning]()
+- [Multimodal Machine Learning](post/Deep%20Learning/MMML.html)
+- [An Introduction to Pre-Train](post/Deep%20Learning/Pre-train.html)
+-  [An Introduction to Prompt](post/Deep%20Learning/Prompt.html)
 
 ## Practical Resources
 这里收藏一些有帮助的资源
