@@ -53,21 +53,26 @@ layout: default
 ## Practical Resources
 这里收藏一些有帮助的资源
 ### Tools
--  **IDE:**[VScode](https://blog.csdn.net/weixin_50821119/article/details/110528064)
-- **Remote Sever:**[MobaXtrem](https://mobaxterm.mobatek.net/)
 - **Paper Management Software:**[Mendeley](https://www.mendeley.com/)
+- **Remote Sever:**[MobaXtrem](https://mobaxterm.mobatek.net/)
+- **Web Server:**[Nginx](https://www.yuque.com/bithachi/study/lu11gb)
+- **Docker:**[Docker](https://www.yuque.com/bithachi/study/ggg9i2)
+-  **IDE:**[VScode](https://blog.csdn.net/weixin_50821119/article/details/110528064)
 - **Git:**[Git](post\Tool\Git.html)
 
 
 ### Books & Lessons
 该篇章记录一些学习资料
 - [Deep Learning from Scratch](books/DL%20from%20scratch.pdf) 
-- [Knowledge Graph](books/DL%20and%20KG.pdf)
-- [NLP with Python](books/NLP%20with%20python.pdf)
-- [Pumpkin Book](books/pumpkin_book.pdf)
-- [Road 2 Coding](https://r2coding.com)
 - [Collection of Websites](post/Resource/Websites.html)
+- [Knowledge Graph](books/DL%20and%20KG.pdf)
 - [Awesome Github](post/Resource/Awesome%20Github%209a9a0304ecba44b4893f79f023066fb1.html)
+- [NLP with Python](books/NLP%20with%20python.pdf)
+- [Road 2 Coding](https://r2coding.com)
+- [Pumpkin Book](books/pumpkin_book.pdf)
+
+
+
 
 ### Papers Reading
 *To Be Done*

@@ -53,3 +53,7 @@ Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁�
 /bin/sh test.sh
 /bin/php test.php
 ```
+
+## Linux知识点概览
+[上](https://www.yuque.com/bithachi/study/yirti4)
+[下](https://www.yuque.com/bithachi/study/ko2vq0)

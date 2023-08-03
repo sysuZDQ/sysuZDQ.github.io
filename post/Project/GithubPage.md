@@ -12,3 +12,11 @@
 - https://zhuanlan.zhihu.com/p/51240503
 - https://jekyllcn.com/
 - https://zhuanlan.zhihu.com/p/87225594
+
+
+## 博客搭建方式
+https://www.yuque.com/bithachi/study/cb2rud
+### 动态
+如**WordPress**，因为博客文章、图片、评论、分类和标签等数据都是从数据库里面拿出来的，不是死的，是活的。WordPress搭建挺方便的，只要有个服务器和域名就行，评论和SEO都不用你操心，可以在后台安装一些插件，对博客网站进行扩展，比如WordPress不是原生支持markdown语法的，就可以安装插件，实现markdown的渲染，包括代码块的显示等。
+### 静态
+**Hexo**不需要很多的维护费用，但是搭建Hexo需要使用git（vscode有插件支持图形化命令）然后就是需要node.js去渲染你的博客，渲染完把代码推送到代码托管平台，这里也就是Hexo的静态性了，Hexo的博客内容不是从数据库里面拿出来的，它是根据你的markdown文档加博客主题通过node.js来渲染你的代码，直接将文章与html等前端代码嵌在一起，就像访问静态网站一样。如果你想要评论功能，SEO让搜索引擎收录你的文章。
