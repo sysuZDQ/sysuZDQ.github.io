@@ -36,6 +36,7 @@ layout: default
 - [Python](post/Fundamentals%20of%20Computer/Python%2006fd7f71758d4978b8f31f63a470b470.html)
 - [数据库](post/Fundamentals%20of%20Computer/数据库%201bedb8930aa6435798e72eadd48d46f1.html)
 - [Linux](post/Fundamentals%20of%20Computer/Linux%20e0d1ca4833c14e5a8c23ad77140dcdb2.html)
+- [C++](post/Fundamentals%20of%20Computer/C++%2031a86fdebd794ba69cbd31fac45e8c94.html)
 
 
 
