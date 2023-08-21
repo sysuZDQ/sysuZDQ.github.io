@@ -2,11 +2,18 @@
 
 本文记录构建一个web server的完整过程
 
+## 项目介绍
+
+
+## 项目运行
+
+本项目使用Docker容器来进行模拟实践
+
 ### 项目启动
 
-1、下载`git clone`：[agedcat/WebServer: Uubuntu 20 C++版本的web服务器 (github.com)](https://github.com/agedcat/WebServer)
+1、下载`git clone`：[WebServer](https://github.com/sysuZDQ/WebServer)
 
-2、编译`make`：[c++ make命令-掘金 (juejin.cn)](https://juejin.cn/s/c%2B%2B%20make%E5%91%BD%E4%BB%A4)
+2、编译`make`：[c++ make命令](https://juejin.cn/s/c%2B%2B%20make%E5%91%BD%E4%BB%A4)
 
 ### 服务器端和客户端搭建
 

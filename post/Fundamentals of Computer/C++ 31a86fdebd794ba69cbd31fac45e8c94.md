@@ -348,15 +348,15 @@ cout << "调用构造函数！" <<endl;
 ~Box() {
 cout << "调用析构函数！" <<endl;
 }
-};`
+};
 
-`int main( )
+int main( )
 {
 Box* myBoxArray = new Box[4];`
 
-`delete [] myBoxArray; // 删除数组
+delete [] myBoxArray; // 删除数组
 return 0;
-}`
+}
 ```
 
 **C++模板**：模板是泛型编程的基础，泛型编程即以一种独立于任何特定类型的方式编写代码。
@@ -408,11 +408,11 @@ C++ 提供了下表所示的一些预定义宏：
 
 多线程程序包含可以同时运行的两个或多个部分。这样的程序中的每个部分称为一个线程，每个线程定义了一个单独的执行路径。
 
-[C++ 多线程 | 菜鸟教程 (runoob.com)](https://www.runoob.com/cplusplus/cpp-multithreading.html)
+[C++ 多线程](https://www.runoob.com/cplusplus/cpp-multithreading.html)
 
 **C++ Web编程**
 
-[C++ Web 编程 | 菜鸟教程 (runoob.com)](https://www.runoob.com/cplusplus/cpp-web-programming.html)
+[C++ Web 编程](https://www.runoob.com/cplusplus/cpp-web-programming.html)
 
 ## **二、进阶阶段**
 
@@ -476,10 +476,9 @@ C++ 语言有两个方面体现了复用：
 
 [C++ Standard Library headers - cppreference.com](https://en.cppreference.com/w/cpp/header)
 
-## **三、应用阶段**
 
-*其实编程语言就是要多练，怎么多练，就是代码量。*
+## 三、应用阶段
 
-*自己多写，然后多观摩别人的项目，看人家的写法，模仿项目，学习其中的思想，一点点的积累，一步步形成自己的东西，厚积而薄发，慢慢你就会发现你也可以了。*
+*其实编程语言就是要多练，怎么多练，就是代码量。自己多写，然后多观摩别人的项目，看人家的写法，模仿项目，学习其中的思想，一点点的积累，一步步形成自己的东西，厚积而薄发，慢慢你就会发现你也可以了。*
 
-下面记录一些*实战项目。*
+下面记录一些实战项目。
